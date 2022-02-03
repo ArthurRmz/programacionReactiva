@@ -8,6 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.arthur.models.Persona;
+import com.arthur.operador.creacion.Creacion;
 
 import io.reactivex.Observable;
 import lombok.extern.log4j.Log4j2;
@@ -66,7 +67,10 @@ public class DemoReactorApplication implements CommandLineRunner{
 //		rxJava2();
 //		mono();
 //		flux();
-		fluxMono();
+//		fluxMono();
+		Creacion app = new Creacion();
+//		app.range();
+		app.repeat();
 		
 	}
 	
