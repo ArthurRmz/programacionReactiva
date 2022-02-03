@@ -1,5 +1,8 @@
 package com.arthur;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,6 +11,7 @@ import com.arthur.models.Persona;
 
 import io.reactivex.Observable;
 import lombok.extern.log4j.Log4j2;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Log4j2
@@ -32,11 +36,37 @@ public class DemoReactorApplication implements CommandLineRunner{
 		.doOnNext(p->log.info("[rxJava]"+p.toString()))
 		.subscribe(p->log.info("[rxJava]"+p.toString()));
 	}
+	
+	public void mono() {
+		Mono.just(new Persona(1,"Arthur",25)).subscribe(p->log.info("Mono: "+p.toString()));
+	}
+	
+	public void flux() {
+		List<Persona> personas = new ArrayList<>();
+		personas.add(new Persona(1,"Arthur",25));
+		personas.add(new Persona(2,"Jessica",25));
+		personas.add(new Persona(3,"Pamela",25));
+		
+		Flux.fromIterable(personas).subscribe(p->log.info("Flux: "+p.toString()));
+	}
+	
+	public void fluxMono() {
+		List<Persona> personas = new ArrayList<>();
+		personas.add(new Persona(1,"Arthur",25));
+		personas.add(new Persona(2,"Jessica",25));
+		personas.add(new Persona(3,"Pamela",25));
+		
+		Flux<Persona> fx = Flux.fromIterable(personas);
+		fx.collectList().subscribe(lista -> log.info("FluxMono: "+lista.toString()));
+	}
 
 	@Override
 	public void run(String... args) throws Exception {
-		reactor();
-		rxJava2();
+//		reactor();
+//		rxJava2();
+//		mono();
+//		flux();
+		fluxMono();
 		
 	}
 	
