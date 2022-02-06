@@ -2,19 +2,18 @@ package com.arthur;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import com.arthur.models.Persona;
-import com.arthur.operador.creacion.Creacion;
-import com.arthur.operador.transformacion.Transformacion;
-
 import io.reactivex.Observable;
 import lombok.extern.log4j.Log4j2;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import com.arthur.filtrado.Filtrado;
+import com.arthur.models.Persona;
+import com.arthur.operador.creacion.Creacion;
+import com.arthur.operador.transformacion.Transformacion;
 
 @Log4j2
 @SpringBootApplication
@@ -73,12 +72,20 @@ public class DemoReactorApplication implements CommandLineRunner{
 //		app.range();
 //		app.repeat();
 		
-		Transformacion app = new Transformacion();
+//		Transformacion app = new Transformacion();
 //		app.createPersons();
 //		app.map();
 //		app.mapInteger();
 //		app.flatMap();
-		app.groupBy();
+//		app.groupBy();
+		
+		Filtrado app = new Filtrado();
+//		app.filter();
+//		app.distinctWithPrimitives();
+//		app.distinct();
+//		app.take();
+//		app.skip();
+		app.skipLast();
 	}
 	
 	
