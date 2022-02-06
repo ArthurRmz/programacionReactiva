@@ -14,6 +14,7 @@ import com.arthur.filtrado.Filtrado;
 import com.arthur.models.Persona;
 import com.arthur.operador.combinacion.Combinacion;
 import com.arthur.operador.creacion.Creacion;
+import com.arthur.operador.error.ErrorOp;
 import com.arthur.operador.transformacion.Transformacion;
 
 @Log4j2
@@ -88,11 +89,17 @@ public class DemoReactorApplication implements CommandLineRunner{
 //		app.skip();
 //		app.skipLast();
 		
-		Combinacion app = new Combinacion();
+//		Combinacion app = new Combinacion();
 //		app.merge();
 //		app.mergeOtherObjects();
 //		app.zip();
-		app.zipWith();
+//		app.zipWith();
+		
+		ErrorOp app = new ErrorOp();
+//		app.retry();
+//		app.errorReturn();
+//		app.errorResume();
+		app.errorMap();
 	}
 	
 	
