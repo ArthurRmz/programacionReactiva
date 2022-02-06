@@ -16,6 +16,7 @@ import com.arthur.operador.combinacion.Combinacion;
 import com.arthur.operador.condicional.Condicional;
 import com.arthur.operador.creacion.Creacion;
 import com.arthur.operador.error.ErrorOp;
+import com.arthur.operador.matematico.Matematico;
 import com.arthur.operador.transformacion.Transformacion;
 
 @Log4j2
@@ -102,12 +103,18 @@ public class DemoReactorApplication implements CommandLineRunner{
 //		app.errorResume();
 //		app.errorMap();
 		
-		Condicional app = new Condicional();
+//		Condicional app = new Condicional();
 //		app.defaultIfEmpty();
 //		app.takeUntil();
-		app.timeOut();
+//		app.timeOut();
+		
+		Matematico app = new Matematico();
+//		app.average();
+//		app.count();
+//		app.min();
+//		app.sum();
+		app.summarizing();
+		
 	}
-	
-	
 
 }
