@@ -12,6 +12,7 @@ import reactor.core.publisher.Mono;
 
 import com.arthur.filtrado.Filtrado;
 import com.arthur.models.Persona;
+import com.arthur.operador.combinacion.Combinacion;
 import com.arthur.operador.creacion.Creacion;
 import com.arthur.operador.transformacion.Transformacion;
 
@@ -79,13 +80,19 @@ public class DemoReactorApplication implements CommandLineRunner{
 //		app.flatMap();
 //		app.groupBy();
 		
-		Filtrado app = new Filtrado();
+//		Filtrado app = new Filtrado();
 //		app.filter();
 //		app.distinctWithPrimitives();
 //		app.distinct();
 //		app.take();
 //		app.skip();
-		app.skipLast();
+//		app.skipLast();
+		
+		Combinacion app = new Combinacion();
+//		app.merge();
+//		app.mergeOtherObjects();
+//		app.zip();
+		app.zipWith();
 	}
 	
 	
