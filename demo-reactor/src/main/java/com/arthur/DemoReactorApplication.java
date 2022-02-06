@@ -13,6 +13,7 @@ import reactor.core.publisher.Mono;
 import com.arthur.filtrado.Filtrado;
 import com.arthur.models.Persona;
 import com.arthur.operador.combinacion.Combinacion;
+import com.arthur.operador.condicional.Condicional;
 import com.arthur.operador.creacion.Creacion;
 import com.arthur.operador.error.ErrorOp;
 import com.arthur.operador.transformacion.Transformacion;
@@ -95,11 +96,16 @@ public class DemoReactorApplication implements CommandLineRunner{
 //		app.zip();
 //		app.zipWith();
 		
-		ErrorOp app = new ErrorOp();
+//		ErrorOp app = new ErrorOp();
 //		app.retry();
 //		app.errorReturn();
 //		app.errorResume();
-		app.errorMap();
+//		app.errorMap();
+		
+		Condicional app = new Condicional();
+//		app.defaultIfEmpty();
+//		app.takeUntil();
+		app.timeOut();
 	}
 	
 	
